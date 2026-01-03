@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UMI Consultoría - Talento en Acción">
+    <title>UMI - Talento en Acción</title>
+
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <!-- Fuente Ruda -->
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="admin.html" title="Panel de edición">
+                <img src="img/umi_logo.jpg" alt="Logo UMI">
+            </a>
+        </div>
+
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#trayecto">Nuestro Trayecto</a></li>
+                <li><a href="#about" class="active">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="homepage" class="section hero">
+            <div class="hero-content">
+                <div class="hero-title">
+                    <h1 class="talento-accion">Talento en Acción</h1>
+                </div>
+                <div class="hero-subtitle">
+                    <p>Consultoría y desarrollo profesional con propósito.<br>Donde el talento encuentra su dirección.
+                    </p>
+                    <button href="#contact" class="cta-button">¡Escribinos para empezar!</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Nuestros Servicios</h2>
+            <div id="servicesList">
+                <div class="services-grid" id="servicesGrid">
+                    <!-- JS inserta acá -->
+                </div>
+            </div>
+        </section>
+
+        <section id="MoreInfo" class="MoreInfo-section">
+            <div class="MoreInfo-sections-inner">
+                <div class="MoreInfo-sections-header">
+                    <h2 class="MoreInfo-sections-title">Más sobre nuestros servicio</h2>
+                    <p class="MoreInfo-sections-subtitle">Más informacion sobre nuestros servicios</p>
+
+                </div>
+
+                <div class="MoreInfo-accordion" id="MoreInfoAccordion">
+                    <!-- JS inserta acá -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN TRAJECTO SIMPLIFICADA -->
+        <section id="trayecto" class="trayecto-section">
+            <div class="trayecto-container">
+                <div class="trayecto-header">
+                    <h2>Nuestro Trayecto</h2>
+                </div>
+                <div class="trayecto-gallery">
+                    <!-- Fila superior -->
+                    <div class="gallery-track gallery-track-top" id="trayectoTrackTop">
+                        <!-- JS inserta acá -->
+                    </div>
+                    <!-- Fila media -->
+                    <div class="gallery-track gallery-track-middle" id="trayectoTrackMiddle">
+                        <!-- JS inserta acá -->
+                    </div>
+                    <!-- Fila inferior -->
+                    <div class="gallery-track gallery-track-bottom" id="trayectoTrackBottom">
+                        <!-- JS inserta acá -->
+                    </div>
+
+                    <!-- Efectos de gradiente en los bordes -->
+                    <div class="gradient-overlay left"></div>
+                    <div class="gradient-overlay right"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE NOSOTROS -->
+        <section id="about" class="about">
+            <div class="about-header-sticky">
+                <h2>Detrás de ...</h2>
+                <div class="about-description-center">
+                    <p class="canva-phrase">
+                        "Con una visión centrada en la educación y la tecnología, acompañamos a las personas y empresas
+                        a impactar positivamente en su desarrollo personal y profesional."
+                    </p>
+                    <p class="cta-soft">
+                        Estamos para acompañarte en tu próximo paso.
+                    </p>
+                </div>
+            </div>
+
+            <div class="team-presentation-row">
+                <article class="team-member-card">
+                    <div class="member-header">
+                        <div class="img-wrapper">
+                            <img src="img/persona2.png" alt="Gabi Molignano"
+                                onerror="this.src='https://via.placeholder.com/110x110/9ccc65/ffffff?text=G'">
+                        </div>
+                        <div class="member-title">
+                            <h3>Gabriela Molignano</h3>
+                            <div class="bio-tags">
+                                <span>Psicopedagoga</span>
+                                <span>Gestión de Talento</span>
+                                <span>RH Integral</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-bio">
+                        <p>Psicopedagoga orientada a RRHH. Mi foco está en <strong>generar confianza</strong> y conectar
+                            talento. Fan del trabajo colaborativo y la diversidad.</p>
+                        <p>Brindo soluciones integrales en gestión de talento, empleabilidad y comunicación para
+                            potenciar equipos.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/gabriela-molignano/" target="_blank" rel="noopener noreferrer"
+                        class="linkedin-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 448 512">
+                            <path
+                                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 501.5 14.3 516 31.9 516H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                        Conectá en LinkedIn
+                    </a>
+                </article>
+
+                <article class="team-member-card">
+                    <div class="member-header">
+                        <div class="img-wrapper">
+                            <img src="img/persona1.png" alt="Karina Rocha"
+                                onerror="this.src='https://via.placeholder.com/110x110/9ccc65/ffffff?text=K'">
+                        </div>
+                        <div class="member-title">
+                            <h3>Karina Rocha</h3>
+                            <div class="bio-tags">
+                                <span>Mindfulness</span>
+                                <span>Desarrollo Personal</span>
+                                <span>Bienestar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-bio">
+                        <p>Potencio el desarrollo humano uniendo lo profesional con el bienestar. A través del
+                            <strong>Mindfulness</strong>, ayudo a gestionar emociones y crecer de forma orgánica.
+                        </p>
+                        <p>Creo firmemente que cuando el eje interno se alinea, los resultados externos fluyen.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/-----------------" target="_blank" rel="noopener noreferrer"
+                        class="linkedin-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 448 512">
+                            <path
+                                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 501.5 14.3 516 31.9 516H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                        Conectá en LinkedIn
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contact" class="contact">
+            <h2>Tu próximo paso comienza aquí</h2>
+            <p class="contact-message">¿Listo para fluir hacia tu próximo nivel?</p>
+            <div class="social-links">
+                <a href="https://wa.me/--------------------" target="_blank" class="social-button whatsapp-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        viewBox="0 0 448 512">
+                        <path
+                            d="M380.9 97.1C339 55.2 283.1 32 224 32 100.3 32 0 132.3 0 256c0 45.2 12 89.4 34.8 128.1L0 480l98.5-34.3C136.6 468 179.9 480 224 480c123.7 0 224-100.3 224-224 0-59.1-23.2-115-67.1-158.9zM224 433.9c-38.7 0-76.6-10.4-109.7-30.1l-7.8-4.6-58.5 20.4 20.4-58.5-4.6-7.8C62.5 320.6 52.1 282.7 52.1 244 52.1 142 122 72.1 224 72.1c54.3 0 105.3 21.1 143.7 59.4S440 189.7 440 244c0 102-69.9 189.9-216 189.9zm100.7-138.5l-34.7-17.4c-4.7-2.3-10.1-1.5-13.8 2l-14.4 14.7c-34.8-17.8-62.7-45.7-80.5-80.5l14.7-14.4c3.5-3.7 4.3-9.1 2-13.8l-17.4-34.7c-3.4-6.7-11.6-9.3-18-5.9l-25.1 12.6c-6.6 3.3-10.7 10.1-10.7 17.3 0 91.7 74.3 166 166 166 7.2 0 14-4.1 17.3-10.7l12.6-25.1c3.4-6.4.8-14.6-5.9-18z" />
+                    </svg>
+                    Escribinos por WhatsApp
+                </a>
+                <a href="https://instagram.com/umi.consultoria" target="_blank" class="social-button instagram-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        viewBox="0 0 448 512">
+                        <path
+                            d="M224.1 141c-63.6 0-115.1 51.5-115.1 115.1S160.5 371.2 224.1 371.2 339.2 319.7 339.2 256 287.7 141 224.1 141zm0 190.2c-41.6 0-75.1-33.6-75.1-75.1s33.5-75.1 75.1-75.1 75.1 33.6 75.1 75.1-33.5 75.1-75.1 75.1zm146.4-194.3c0 14.9-12 27-27 27s-27-12.1-27-27 12-27 27-27 27 12.1 27 27zm76.1 27.2c-.5-35.2-9.9-66.5-35.6-92.1s-56.9-35.1-92.1-35.6C293.8 32 256.3 32 224 32s-69.8 0-94.9.5c-35.2.5-66.5 9.9-92.1 35.6s-35.1 56.9-35.6 92.1C0 186.2 0 223.7 0 256s0 69.8.5 94.9c.5 35.2 9.9 66.5 35.6 92.1s56.9 35.1 92.1 35.6c25.1.5 62.6.5 94.9.5s69.8 0 94.9-.5c35.2-.5 66.5-9.9 92.1-35.6s35.1-56.9 35.6-92.1c.5-25.1.5-62.6.5-94.9s0-69.8-.5-94.9zm-48.6 228c-7.8 19.7-22.9 34.8-42.6 42.6-29.5 11.7-99.5 9-132.3 9s-102.7 2.6-132.3-9c-19.7-7.8-34.8-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.3s-2.6-102.7 9-132.3c7.8-19.7 22.9-34.8 42.6-42.6 29.5-11.7 99.5-9 132.3-9s102.7-2.6 132.3 9c19.7 7.8 34.8 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.3s2.7 102.8-9 132.3z" />
+                    </svg>
+                    Seguinos en Instagram
+                </a>
+            </div>
+            <p class="contact-info">
+                WhatsApp: +54 11 1111 1111<br>
+                Instagram: @umi.consultoria
+            </p>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="img/umi_logo.jpg" alt="UMI Consultoría">
+                </div>
+                <div class="footer-text">
+                    © 2023 UMI Consultoría. Fluyendo hacia el éxito.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

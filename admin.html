@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+
+<body>
+
+    <a href="#mainContent" class="skip-to-main">Saltar al contenido principal</a>
+
+    <!-- ================= LOGIN ================= -->
+    <section class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <span class="login-logo-icon">⚡</span>
+                    <span class="login-logo-text">Panel de Administración</span>
+                </div>
+                <h2>Acceso Administrativo</h2>
+                <p>Ingresa tus credenciales</p>
+            </div>
+
+            <form id="loginForm" class="login-form" novalidate>
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i> Usuario
+                    </label>
+                    <input id="username" name="username" autocomplete="username" required>
+                    <span id="usernameError" class="error-message">Usuario requerido</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <input id="password" type="password" name="password" autocomplete="current-password" required>
+                    <span id="passwordError" class="error-message">Contraseña requerida</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Ingresar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ================= ADMIN ================= -->
+    <section id="adminContainer" style="display: none;">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar" aria-label="Menú de administración">
+            <button id="sidebarToggle" class="sidebar-toggle" aria-label="Alternar menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Admin</span>
+            </div>
+
+            <nav class="nav">
+                <button class="nav-item active" data-panel="dashboard" aria-controls="dashboardPanel">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+
+                <button class="nav-item" data-panel="services" aria-controls="servicesPanel">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="nav-text">Servicios</span>
+                </button>
+
+                <button class="nav-item" data-panel="MoreInfo" aria-controls="MoreInfoPanel">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="nav-text">Secciones</span>
+                </button>
+
+                <button class="nav-item" data-panel="content" aria-controls="contentPanel">
+                    <i class="fas fa-images"></i>
+                    <span class="nav-text">Contenido</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-text">Cerrar sesión</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ================= CONTENIDO PRINCIPAL ================= -->
+        <main class="main-content" id="mainContent">
+
+            <!-- DASHBOARD -->
+            <section id="dashboardPanel" class="panel-content active" role="tabpanel">
+                <header class="admin-header">
+                    <h1>Panel de Administración</h1>
+                    <div class="user-info">
+                        <span>Hola, <strong id="currentUser">Administrador</strong></span>
+                        <button class="btn btn-secondary" onclick="window.open('./index.html','_blank')">
+                            <i class="fas fa-external-link-alt"></i> Ver sitio
+                        </button>
+                    </div>
+                </header>
+
+                <section class="admin-section">
+                    <h2>Resumen General</h2>
+
+                    <div class="admin-grid">
+                        <div class="admin-card">
+                            <div class="admin-preview">
+                                <div class="default-icon">
+                                    <i class="fas fa-concierge-bell"></i>
+                                </div>
+                            </div>
+                            <div class="admin-card-content">
+                                <h4>Servicios</h4>
+                                <div class="counter-display" id="servicesCount">0</div>
+                                <div class="counter-label">registrados</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-preview">
+                                <div class="default-icon bg-warning">
+                                    <i class="fas fa-folder-open"></i>
+                                </div>
+                            </div>
+                            <div class="admin-card-content">
+                                <h4>Secciones</h4>
+                                <div class="counter-display" id="moreInfoCount">0</div>
+                                <div class="counter-label">secciones</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-preview">
+                                <div class="default-icon bg-info">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            <div class="admin-card-content">
+                                <h4>Contenido</h4>
+                                <div class="counter-display" id="contentCount">0</div>
+                                <div class="counter-label">items</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SERVICIOS -->
+            <section id="servicesPanel" class="panel-content" style="display: none;">
+                <header class="admin-header">
+                    <h2>Gestión de Servicios</h2>
+                    <button class="btn btn-primary" id="newServiceBtn">
+                        <i class="fas fa-plus"></i> Nuevo servicio
+                    </button>
+                </header>
+
+                <div class="admin-grid" id="servicesGrid" aria-live="polite"></div>
+            </section>
+
+            <!-- MÁS INFORMACIÓN -->
+            <section id="MoreInfoPanel" class="panel-content" style="display: none;">
+                <header class="admin-header">
+                    <h2>Gestión de Secciones</h2>
+                    <button class="btn btn-primary" id="newSectionBtn">
+                        <i class="fas fa-plus"></i> Nueva Sección
+                    </button>
+                </header>
+
+                <div id="sectionsGrid" aria-live="polite"></div>
+            </section>
+
+            <!-- CONTENIDO -->
+            <section id="contentPanel" class="panel-content" style="display: none;">
+                <header class="admin-header">
+                    <h2>Gestión de Contenido</h2>
+                    <button class="btn btn-primary" id="newEventBtn">
+                        <i class="fas fa-plus"></i> Nuevo item
+                    </button>
+                </header>
+
+                <div class="admin-grid" id="eventsGrid" aria-live="polite"></div>
+            </section>
+
+        </main>
+    </section>
+
+    <!-- ================= MODALES ================= -->
+
+    <!-- Modal de Servicio -->
+    <div id="serviceModal" class="modal" style="display: none;" aria-hidden="true" role="dialog"
+        aria-labelledby="serviceModalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="serviceModalTitle">Nuevo Servicio</h3>
+                <button id="closeServiceModal" class="modal-close" aria-label="Cerrar modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="serviceForm" class="modal-form" novalidate>
+                <div class="form-group">
+                    <label for="serviceTitle">Título del servicio *</label>
+                    <input id="serviceTitle" name="title" required>
+                    <span id="serviceTitleError" class="error-message">El título es requerido</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceDesc">Descripción *</label>
+                    <textarea id="serviceDesc" name="description" rows="3" required></textarea>
+                    <span id="serviceDescError" class="error-message">La descripción es requerida</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de ícono</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="iconType" value="default" checked>
+                            <span>Ícono predeterminado</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="iconType" value="custom">
+                            <span>Imagen personalizada</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="serviceFileWrap" class="form-group" style="display: none;">
+                    <label for="serviceIcon">Imagen del servicio</label>
+                    <input type="file" id="serviceIcon" name="icon" accept="image/*">
+                    <div id="serviceFileName" class="file-name">No se ha seleccionado ninguna imagen</div>
+                    <img id="servicePreview" class="image-preview" alt="Vista previa">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="serviceVisible" name="visible" checked>
+                        <span>Mostrar en el sitio</span>
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelServiceBtn" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="serviceSaveBtn" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Servicio
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Sección -->
+    <div id="sectionModal" class="modal" style="display: none;" aria-hidden="true" role="dialog"
+        aria-labelledby="sectionModalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="sectionModalTitle">Nueva Sección</h3>
+                <button id="closeSectionModal" class="modal-close" aria-label="Cerrar modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="sectionForm" class="modal-form" novalidate>
+                <div class="form-group">
+                    <label for="sectionTitle">Título de la sección *</label>
+                    <input id="sectionTitle" name="title" required placeholder="Ej: Servicios de Consultoría">
+                    <span id="sectionTitleError" class="error-message">El título es requerido</span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="sectionVisible" name="visible" checked>
+                        <span>Mostrar en el sitio</span>
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelSectionBtn" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="sectionSaveBtn" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Sección
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Ítem de Información -->
+    <div id="infoItemModal" class="modal" style="display: none;" aria-hidden="true" role="dialog"
+        aria-labelledby="infoItemModalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="infoItemModalTitle">Nueva Información</h3>
+                <button id="closeInfoItemModal" class="modal-close" aria-label="Cerrar modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="infoItemForm" class="modal-form" novalidate>
+                <input type="hidden" id="currentSectionId">
+
+                <div class="form-group">
+                    <label for="infoItemSubtitle">Subtítulo *</label>
+                    <input id="infoItemSubtitle" name="subtitle" required
+                        placeholder="Ej: Desarrollo Profesional Integral">
+                    <span id="infoItemSubtitleError" class="error-message">El subtítulo es requerido</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="infoItemDescription">Descripción principal *</label>
+                    <textarea id="infoItemDescription" name="description" rows="5" required
+                        placeholder="Describe detalladamente esta información..."></textarea>
+                    <span id="infoItemDescriptionError" class="error-message">La descripción es requerida</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="infoItemDedicacion">Dedicación (opcional)</label>
+                    <input id="infoItemDedicacion" name="dedicacion" placeholder="Ej: 1 a 2 encuentros semanales">
+                </div>
+
+                <div class="form-group">
+                    <label for="infoItemModalidad">Modalidad (opcional)</label>
+                    <select id="infoItemModalidad" name="modalidad">
+                        <option value="">Seleccionar modalidad</option>
+                        <option value="Online">Online</option>
+                        <option value="Presencial (Mar del Plata)">Presencial (Mar del Plata)</option>
+                        <option value="Online o Presencial">Online y Presencial (Mar del Plata)</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="infoItemVisible" name="visible" checked>
+                        <span>Mostrar en el sitio</span>
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelInfoItemBtn" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="infoItemSaveBtn" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Información
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Contenido -->
+    <div id="eventModal" class="modal" style="display: none;" aria-hidden="true" role="dialog"
+        aria-labelledby="eventModalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="eventModalTitle">Nuevo Item de Contenido</h3>
+                <button id="closeEventModal" class="modal-close" aria-label="Cerrar modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="eventForm" class="modal-form" novalidate>
+                <div class="form-group">
+                    <label for="eventTitle">Título *</label>
+                    <input id="eventTitle" name="title" required>
+                    <span id="eventTitleError" class="error-message">El título es requerido</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventSubtitle">Subtítulo *</label>
+                    <textarea id="eventSubtitle" name="subtitle" rows="3" required></textarea>
+                    <span id="eventSubtitleError" class="error-message">El subtítulo es requerido</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventImage">Imagen</label>
+                    <input type="file" id="eventImage" name="image" accept="image/*">
+                    <div id="eventFileName" class="file-name">No se ha seleccionado ninguna imagen</div>
+                    <img id="eventPreview" class="image-preview" alt="Vista previa">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="eventVisible" name="visible" checked>
+                        <span>Mostrar en el sitio</span>
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelEventBtn" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="eventSaveBtn" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Contenido
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
